@@ -1,7 +1,6 @@
 :root {
   --bg: #06100c;
   --panel: #0b1712;
-  --green: #173b2a;
   --gold: #c7a85b;
   --cream: #ece5d2;
   --muted: #9f9b8e;
@@ -25,26 +24,19 @@ body {
   overflow-x: hidden;
 }
 
-body:before {
+body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(
-      circle at 80% 5%,
-      rgba(199, 168, 91, .08),
-      transparent 30%
-    ),
-    linear-gradient(
-      rgba(255, 255, 255, .015) 1px,
-      transparent 1px
-    );
+    radial-gradient(circle at 80% 5%, rgba(199,168,91,.08), transparent 30%),
+    linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px);
   background-size: auto, 100% 6px;
   opacity: .8;
 }
 
-/* NAVEGACIÓN */
+/* NAV */
 
 .nav {
   height: 70px;
@@ -55,9 +47,9 @@ body:before {
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
-  background: rgba(6, 16, 12, .92);
+  background: rgba(6,16,12,.94);
   backdrop-filter: blur(10px);
-  z-index: 10;
+  z-index: 20;
 }
 
 .brand {
@@ -89,35 +81,34 @@ body:before {
 
 .hero {
   min-height: calc(100vh - 70px);
+  width: 100%;
+  padding: 9vh 8vw;
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
-  gap: 6vw;
+  grid-template-columns: minmax(0, 3fr) minmax(280px, 1fr);
+  gap: 7vw;
   align-items: center;
-  padding: 10vh 7vw;
   position: relative;
   overflow: hidden;
 }
 
-.hero-copy {
-  min-width: 0;
-  width: 100%;
-  max-width: 100%;
-  position: relative;
-  z-index: 2;
-}
-
-.hero:after {
+.hero::after {
   content: "";
   position: absolute;
-  width: 55vw;
-  height: 55vw;
+  width: 48vw;
+  height: 48vw;
   border: 1px solid var(--line);
   border-radius: 50%;
-  right: -25vw;
-  top: -12vw;
-  box-shadow:
-    0 0 0 80px rgba(199, 168, 91, .015),
-    0 0 0 160px rgba(199, 168, 91, .01);
+  right: -22vw;
+  top: -10vw;
+  pointer-events: none;
+}
+
+.hero-copy {
+  width: 100%;
+  min-width: 0;
+  max-width: 950px;
+  position: relative;
+  z-index: 2;
 }
 
 .eyebrow {
@@ -125,7 +116,7 @@ body:before {
   font-size: .68rem;
   letter-spacing: .25em;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin: 0 0 24px;
 }
 
 h1,
@@ -136,14 +127,13 @@ h3 {
   margin-top: 0;
 }
 
-/* TÍTULO PRINCIPAL CORREGIDO */
+/* PIERREVAL */
 
-h1 {
-  font-size: clamp(3.5rem, 6.2vw, 6.5rem);
-  letter-spacing: .025em;
-  line-height: .9;
-  margin-bottom: 30px;
-  max-width: 100%;
+.hero h1 {
+  margin: 0 0 36px;
+  font-size: clamp(4rem, 6.6vw, 7.7rem);
+  line-height: .88;
+  letter-spacing: .015em;
   white-space: nowrap;
 }
 
@@ -158,13 +148,15 @@ h3 {
 }
 
 .tagline {
+  margin: 0 0 28px;
   font-weight: bold;
   letter-spacing: .13em;
-  font-size: clamp(.9rem, 1.5vw, 1.2rem);
+  font-size: clamp(.9rem, 1.35vw, 1.15rem);
 }
 
 .intro {
-  max-width: 650px;
+  max-width: 680px;
+  margin: 0;
   color: #c9c5b9;
   font-family: Georgia, serif;
   font-size: 1.15rem;
@@ -172,7 +164,7 @@ h3 {
 
 .button {
   display: inline-block;
-  margin: 28px 10px 0 0;
+  margin: 30px 10px 0 0;
   padding: 14px 20px;
   text-decoration: none;
   font-size: .72rem;
@@ -190,20 +182,23 @@ h3 {
   color: var(--gold);
 }
 
-/* TARJETA #47 */
+/* TARJETA */
 
 .rank-card {
+  width: 100%;
+  max-width: 360px;
+  min-height: 320px;
+  justify-self: end;
   border: 1px solid var(--gold);
   padding: 30px;
-  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transform: rotate(2deg);
   background: linear-gradient(145deg, #111, #06100c);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, .35);
+  box-shadow: 0 30px 70px rgba(0,0,0,.35);
+  position: relative;
   z-index: 2;
-  min-width: 0;
 }
 
 .rank-card span,
@@ -216,6 +211,7 @@ h3 {
 .rank-card strong {
   font-family: Georgia, serif;
   font-size: 7rem;
+  line-height: 1;
   font-weight: normal;
 }
 
@@ -234,7 +230,7 @@ h3 {
 
 .book {
   display: grid;
-  grid-template-columns: minmax(240px, 380px) minmax(0, 1fr);
+  grid-template-columns: minmax(240px,380px) minmax(0,1fr);
   gap: 9vw;
   align-items: center;
   background: #09130f;
@@ -243,7 +239,7 @@ h3 {
 .cover-wrap img {
   width: 100%;
   display: block;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
+  box-shadow: 0 30px 80px rgba(0,0,0,.55);
 }
 
 .lead {
@@ -286,7 +282,7 @@ h3 {
 
 .board-row {
   display: grid;
-  grid-template-columns: 70px minmax(0, 1fr) 100px;
+  grid-template-columns: 70px minmax(0,1fr) 100px;
   padding: 18px 10px;
   border-bottom: 1px solid var(--line);
   align-items: center;
@@ -305,7 +301,7 @@ h3 {
 }
 
 .board-row.active {
-  background: rgba(199, 168, 91, .09);
+  background: rgba(199,168,91,.09);
   border: 1px solid var(--gold);
 }
 
@@ -353,15 +349,15 @@ h3 {
   font-size: 3.5rem;
 }
 
-/* LIFE AT PIERREVAL */
+/* LIFE */
 
 .life {
-  background: linear-gradient(180deg, #0a1711, #06100c);
+  background: linear-gradient(180deg,#0a1711,#06100c);
 }
 
 .tiles {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,1fr);
   gap: 1px;
   background: var(--line);
   margin-top: 50px;
@@ -390,7 +386,7 @@ h3 {
 
 .saga-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 18px;
   margin-top: 50px;
 }
@@ -460,7 +456,7 @@ h3 {
 
 .author p {
   font-family: Georgia, serif;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2rem,5vw,4rem);
   letter-spacing: .16em;
 }
 
@@ -476,20 +472,19 @@ footer {
   letter-spacing: .12em;
 }
 
-/* TABLETS */
+/* PANTALLAS MEDIAS */
 
-@media (max-width: 1050px) {
+@media (max-width: 1200px) {
 
   .hero {
-    grid-template-columns: minmax(0, 1.2fr) minmax(240px, .8fr);
-    gap: 4vw;
+    grid-template-columns: minmax(0,2.2fr) minmax(260px,1fr);
+    gap: 5vw;
     padding-left: 6vw;
     padding-right: 6vw;
   }
 
-  h1 {
-    font-size: clamp(3.2rem, 6vw, 5.4rem);
-    letter-spacing: .02em;
+  .hero h1 {
+    font-size: clamp(3.8rem,6vw,6rem);
   }
 
   .rank-card strong {
@@ -497,36 +492,34 @@ footer {
   }
 }
 
-/* MÓVIL */
+/* TABLET Y MÓVIL */
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 
   .nav nav {
     display: none;
   }
 
   .hero {
-    grid-template-columns: 1fr;
-    padding: 70px 7vw 80px;
     min-height: auto;
-    gap: 55px;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    padding: 80px 7vw;
   }
 
   .hero-copy {
-    width: 100%;
-    min-width: 0;
+    max-width: none;
   }
 
-  h1 {
-    font-size: 11vw;
-    letter-spacing: .01em;
+  .hero h1 {
+    font-size: 12.5vw;
+    letter-spacing: .005em;
     white-space: nowrap;
-    width: 100%;
   }
 
   .tagline {
-    font-size: .85rem;
-    letter-spacing: .09em;
+    font-size: .9rem;
+    letter-spacing: .1em;
   }
 
   .intro {
@@ -534,9 +527,8 @@ footer {
   }
 
   .rank-card {
-    width: calc(100% - 14px);
-    max-width: 360px;
-    margin-left: 4px;
+    justify-self: start;
+    width: min(360px,94%);
   }
 
   .book {
@@ -562,7 +554,7 @@ footer {
   }
 
   .board-row {
-    grid-template-columns: 55px minmax(0, 1fr) 70px;
+    grid-template-columns: 55px minmax(0,1fr) 70px;
     font-size: .75rem;
   }
 
@@ -575,18 +567,17 @@ footer {
   }
 
   footer {
-    gap: 20px;
     flex-direction: column;
+    gap: 20px;
   }
 }
 
-/* MÓVILES PEQUEÑOS */
+/* MÓVIL PEQUEÑO */
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
 
   .nav {
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding: 0 6vw;
   }
 
   .brand {
@@ -594,13 +585,16 @@ footer {
   }
 
   .hero {
-    padding-left: 6vw;
-    padding-right: 6vw;
+    padding: 65px 6vw 75px;
   }
 
-  h1 {
-    font-size: 10.5vw;
+  .hero h1 {
+    font-size: 11.6vw;
     letter-spacing: 0;
+  }
+
+  .tagline {
+    line-height: 1.7;
   }
 
   .button {
@@ -612,5 +606,9 @@ footer {
 
   .rank-card {
     width: 94%;
+  }
+
+  .compatibility strong {
+    font-size: 3.3rem;
   }
 }
