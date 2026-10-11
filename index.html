@@ -27,10 +27,7 @@
   >
 </head>
 
-
 <body>
-
-  <!-- NAVEGACIÓN -->
 
   <header class="nav">
 
@@ -53,7 +50,6 @@
 
 
   <main id="top">
-
 
     <!-- HERO -->
 
@@ -167,7 +163,6 @@
           del 97,4 %, deciden investigar juntas.
         </p>
 
-
         <div class="buy">
 
           <span>
@@ -183,7 +178,6 @@
           </span>
 
         </div>
-
 
         <p class="note">
           Disponible en Amazon.
@@ -214,9 +208,7 @@
 
         <div class="board-row">
 
-          <span>
-            #04
-          </span>
+          <span>#04</span>
 
           <b>
             ISABELLE KALT-TANNENBERG
@@ -231,9 +223,7 @@
 
         <div class="board-row">
 
-          <span>
-            #18
-          </span>
+          <span>#18</span>
 
           <b>
             TRISTAN
@@ -248,9 +238,7 @@
 
         <div class="board-row active">
 
-          <span>
-            #47
-          </span>
+          <span>#47</span>
 
           <b>
             SLOANE HOLT
@@ -265,9 +253,7 @@
 
         <div class="board-row">
 
-          <span>
-            #—
-          </span>
+          <span>#—</span>
 
           <b>
             NORA VALE
@@ -435,9 +421,7 @@
 
         <article class="current">
 
-          <span>
-            01
-          </span>
+          <span>01</span>
 
           <h3>
             THE RANKING
@@ -456,9 +440,7 @@
 
         <article>
 
-          <span>
-            02
-          </span>
+          <span>02</span>
 
           <h3>
             THE NETWORK
@@ -477,9 +459,7 @@
 
         <article>
 
-          <span>
-            03
-          </span>
+          <span>03</span>
 
           <h3>
             THE ASSEMBLY
@@ -500,7 +480,7 @@
     </section>
 
 
-    <!-- TEST DE ADMISIÓN -->
+    <!-- ADMISIÓN -->
 
     <section
       id="admission"
@@ -515,17 +495,8 @@
         ¿SERÍAS ADMITIDO?
       </h2>
 
-      <p>
-        Diez decisiones.
-        Cuatro variables.
-        Un puesto inicial.
-      </p>
-
-      <p>
-        Pierreval evaluará tu ambición,
-        adaptabilidad,
-        inteligencia social
-        e independencia.
+      <p class="admission-lead">
+        Diez decisiones. Cuatro variables. Un puesto inicial.
       </p>
 
       <button
@@ -551,8 +522,6 @@
   </main>
 
 
-  <!-- FOOTER -->
-
   <footer>
 
     <span>
@@ -566,7 +535,304 @@
   </footer>
 
 
-  <!-- MOTOR DEL TEST -->
+  <!-- TEST DE ADMISIÓN -->
+
+  <div
+    id="testOverlay"
+    class="test-overlay"
+    aria-hidden="true"
+  >
+
+    <div class="test-topbar">
+
+      <span class="test-brand">
+        PIERREVAL
+      </span>
+
+      <span class="test-system">
+        ADMISSIONS SYSTEM
+      </span>
+
+      <button
+        id="closeTest"
+        class="test-close"
+        type="button"
+        aria-label="Cerrar evaluación"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="test-container">
+
+
+      <!-- INTRO -->
+
+      <section
+        id="testIntro"
+        class="test-view"
+      >
+
+        <p class="test-code">
+          ADMISSIONS / ASSESSMENT
+        </p>
+
+        <h2>
+          SOLICITUD DE ADMISIÓN
+        </h2>
+
+        <p class="test-intro-text">
+          Pierreval evaluará cuatro variables:
+          ambición, adaptabilidad, inteligencia social e independencia.
+        </p>
+
+        <p class="test-warning">
+          No existen respuestas correctas.
+          Solo patrones.
+        </p>
+
+
+        <div class="candidate-block">
+
+          <label for="candidateName">
+            NOMBRE DEL CANDIDATO
+          </label>
+
+          <input
+            id="candidateName"
+            type="text"
+            maxlength="30"
+            autocomplete="off"
+            placeholder="NOMBRE"
+          >
+
+          <p
+            id="nameError"
+            class="form-error"
+          >
+            Introduce un nombre para continuar.
+          </p>
+
+        </div>
+
+
+        <button
+          id="beginTest"
+          type="button"
+          class="test-button"
+        >
+          INICIAR EVALUACIÓN
+        </button>
+
+      </section>
+
+
+      <!-- PREGUNTAS -->
+
+      <section
+        id="questionView"
+        class="test-view hidden"
+      >
+
+        <div class="test-progress-meta">
+
+          <span id="questionNumber">
+            ASSESSMENT 01/10
+          </span>
+
+          <span id="progressValue">
+            10%
+          </span>
+
+        </div>
+
+
+        <div class="test-progress">
+
+          <span id="progressBar"></span>
+
+        </div>
+
+
+        <p
+          id="questionCategory"
+          class="test-code"
+        ></p>
+
+        <h2
+          id="questionText"
+          class="question-text"
+        ></h2>
+
+        <div
+          id="answerList"
+          class="answer-list"
+        ></div>
+
+      </section>
+
+
+      <!-- ANÁLISIS -->
+
+      <section
+        id="analysisView"
+        class="test-view analysis-view hidden"
+      >
+
+        <p class="test-code">
+          PIERREVAL / INTERNAL
+        </p>
+
+        <h2>
+          ANALYSING PROFILE
+        </h2>
+
+        <div
+          id="analysisList"
+          class="analysis-list"
+        ></div>
+
+      </section>
+
+
+      <!-- RESULTADO -->
+
+      <section
+        id="resultView"
+        class="test-view hidden"
+      >
+
+        <p class="test-code">
+          PIERREVAL / ADMISSION STATUS
+        </p>
+
+
+        <div class="result-layout">
+
+
+          <div class="result-info">
+
+            <span
+              id="resultStatus"
+              class="status-badge"
+            ></span>
+
+            <h2 id="resultCandidate">
+              CANDIDATE
+            </h2>
+
+
+            <div class="result-numbers">
+
+              <div>
+
+                <span>
+                  SCORE
+                </span>
+
+                <strong id="resultScore">
+                  00.0
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <span>
+                  INITIAL RANK
+                </span>
+
+                <strong id="resultRank">
+                  #00
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <p class="result-caption">
+              PROFILE
+            </p>
+
+            <h3 id="resultProfile">
+              THE STRATEGIST
+            </h3>
+
+            <p
+              id="resultProfileText"
+              class="result-profile-text"
+            ></p>
+
+          </div>
+
+
+          <div class="compatibility-card">
+
+            <span class="card-label">
+              HIGHEST COMPATIBILITY
+            </span>
+
+            <strong id="resultCompatibility">
+              00.0%
+            </strong>
+
+            <p id="resultMatch">
+              —
+            </p>
+
+            <small id="resultMatchType">
+              STUDENT MATCH
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="traitGrid"
+          class="trait-grid"
+        ></div>
+
+
+        <div
+          id="relationalIndicator"
+          class="relational-indicator hidden"
+        >
+          RELATIONAL INDICATORS DETECTED
+        </div>
+
+
+        <div class="result-buttons">
+
+          <button
+            id="copyResult"
+            type="button"
+            class="test-button"
+          >
+            COPIAR RESULTADO
+          </button>
+
+          <button
+            id="restartTest"
+            type="button"
+            class="test-button secondary"
+          >
+            REPETIR EVALUACIÓN
+          </button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+
 
   <script src="script.js"></script>
 
